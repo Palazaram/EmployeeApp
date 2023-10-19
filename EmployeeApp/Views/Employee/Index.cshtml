@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Employee>
+@using System.Globalization;
+
+<h2>Список співробітників</h2>
+<form method="get" asp-action="Index">
+    <div class="d-inline">
+        <input type="text" class="w-25 p-1" placeholder="Пошук за прізвищем, відділом, посадою" name="sterm" >
+        <button type="submit" class="btn btn-primary">Пошук</button>
+        <a asp-action="Index" asp-controller="Employee" class="btn btn-dark">Скасувати</a>
+    </div>
+</form>
+<p><a asp-action="Create">Додати нового співробітника</a></p>
+<table class="table w-60">
+    <tr><th>Id</th><th>FirstName</th><th>LastName</th><th>Patronimyc</th><th>Birthday</th><th>Department</th><th>Position</th><th>Salary</th><th></th></tr>
+    @foreach (var item in Model) 
+    {
+        <tr onclick="window.location.href = '/Employee/Edit/@item.Id'">
+            <td>@item.Id</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.Patronimyc</td>
+            <td>@item.Birthday.ToShortDateString() (@(DateTime.Now.Year - item.Birthday.Year))</td>
+            <td>@item.Department</td>
+            <td>@item.Position</td>
+            <td>@item.Salary.ToString("C2", new CultureInfo("ua-UA"))</td>
+            <td>
+                <form asp-controller="Employee" asp-action="Delete" method="post" asp-route-id="@item.Id">
+                    <input type="submit" value="Звільнити" class="btn bg-danger text-white"/>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

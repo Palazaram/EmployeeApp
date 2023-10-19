@@ -1,0 +1,46 @@
+﻿@model Employee
+
+<h2>Редагування співробітника</h2>
+<form asp-action="edit" asp-controller="employee" asp-route-id="@Model.Id">
+    <p>
+        <label asp-for="FirstName">FirstName</label><br />
+        <input type="text" asp-for="FirstName" />
+        <span asp-validation-for="FirstName" class="text-danger" />
+    </p>
+    <p>
+        <label asp-for="LastName">LastName</label><br />
+        <input type="text" asp-for="LastName" />
+        <span asp-validation-for="LastName" class="text-danger" />
+    </p>
+    <p>
+        <label asp-for="Patronimyc">Patronimyc</label><br />
+        <input type="text" asp-for="Patronimyc" />
+        <span asp-validation-for="Patronimyc" class="text-danger" />
+    </p>
+    <p>
+        <label asp-for="Birthday">Birthday</label><br />
+        <input type="date" asp-for="Birthday" />
+        <span asp-validation-for="Birthday" class="text-danger" />
+    </p>
+    <p>
+        <label asp-for="Department">Department</label><br />
+        <input type="text" asp-for="Department" />
+        <span asp-validation-for="Department" class="text-danger" />
+    </p>
+    <p>
+        <label asp-for="Position">Position</label><br />
+        <input type="text" asp-for="Position" />
+        <span asp-validation-for="Position" class="text-danger" />
+    </p>
+    <p>
+        <label asp-for="Salary">Salary</label><br />
+        <input type="text" asp-for="Salary" />
+        <span asp-validation-for="Salary" class="text-danger" />
+    </p>
+    <p>
+        <input type="submit" value="Зберегти" />
+    </p>
+</form>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.10/jquery.validate.unobtrusive.min.js"></script>
